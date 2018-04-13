@@ -36,7 +36,7 @@ class App extends Component {
         <p>{this.state.pText}</p>
         <button onClick={this.switchNameHandler}>cambiar nombre</button>
         <Person name="Alex" age="29" />
-        <Person name="Andrea" age="30">
+        <Person name="Andrea" age="30" click={this.switchNameHandler}>
           Mis hobbies son: cocinar, ver series
         </Person>
         <Person name="Marlon" age="29" />
