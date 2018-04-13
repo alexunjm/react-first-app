@@ -9,6 +9,10 @@ class App extends Component {
 		title: 'Bienvenido a React'
 	};
 
+	switchNameHandler() {
+		console.log('se ha dado click');
+	}
+
   	render() {
              /* return (
       <div className="App">
@@ -25,6 +29,7 @@ class App extends Component {
 		return <div className="App">
         <h1>{this.state.title}</h1>
         <p>Esto realmente funciona!!</p>
+		<button onClick={this.switchNameHandler} >cambiar nombre</button>
         <Person name="Alex" age="29" />
         <Person name="Andrea" age="30" >Mis hobbies son: cocinar, ver series</Person>
         <Person name="Marlon" age="29" />
