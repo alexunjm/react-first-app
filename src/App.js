@@ -20,7 +20,9 @@ class App extends Component {
 		return <div className="App">
         <h1>Ejemplo de componente con la clase React</h1>
         <p>Esto realmente funciona!!</p>
-		<Person />
+        <Person />
+        <Person />
+        <Person />
       </div>;
 	
 		/* return React.createElement("div", { className: "App" }, React.createElement("h1", null, "Ejemplo de componente con la clase React")); */
