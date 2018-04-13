@@ -6,7 +6,8 @@ import Person from './Person/Person';
 class App extends Component {
   state = {
     title: "Bienvenido a React",
-    pText: "Esto realmente funciona!!"
+	pText: "Esto realmente funciona!!",
+	aName: "Marlon"
   };
 
   switchNameHandler = (newTitle) => {
@@ -16,6 +17,12 @@ class App extends Component {
       title: newTitle ? newTitle : "Ejemplo de evento de click para cambiar el título de ésta página"
     });
   };
+
+  changeNameHandler = (event) => {
+	  this.setState({
+		  aName: event.target.value
+	  });
+  }
 
   render() {
     /* return (
@@ -36,14 +43,16 @@ class App extends Component {
         <button onClick={this.switchNameHandler.bind(this, "Prueba")}>
           cambiar nombre
         </button>
-        <button onClick={() => this.switchNameHandler("Prueba de otra forma")}>
+        <button
+          onClick={() => this.switchNameHandler("Prueba de otra forma")}
+        >
           cambiar nombre de otra forma
         </button>
         <Person name="Alex" age="29" />
         <Person name="Andrea" age="30" click={this.switchNameHandler.bind(this, null)}>
           Mis hobbies son: cocinar, ver series
         </Person>
-        <Person name="Marlon" age="29" />
+        <Person name={this.state.aName} age="29" changed={this.changeNameHandler} />
       </div>;
 
     /* return React.createElement("div", { className: "App" }, React.createElement("h1", null, "Ejemplo de componente con la clase React")); */
