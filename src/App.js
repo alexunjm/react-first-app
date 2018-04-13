@@ -4,7 +4,12 @@ import "./App.css";
 import Person from './Person/Person';
 
 class App extends Component {
-  render() {
+
+	state = {
+		title: 'Bienvenido a React'
+	};
+
+  	render() {
              /* return (
       <div className="App">
         <header className="App-header">
@@ -18,7 +23,7 @@ class App extends Component {
 	); */
 	
 		return <div className="App">
-        <h1>Ejemplo de componente con la clase React</h1>
+        <h1>{this.state.title}</h1>
         <p>Esto realmente funciona!!</p>
         <Person name="Alex" age="29" />
         <Person name="Andrea" age="30" >Mis hobbies son: cocinar, ver series</Person>
