@@ -25,37 +25,27 @@ class App extends Component {
   }
 
   render() {
-    /* return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-	); */
+    
+    return (
+		<div className="App">
+			<h1>{this.state.title}</h1>
+			<p>{this.state.pText}</p>
+			<button onClick={this.switchNameHandler.bind(this, "Prueba")}>
+			cambiar nombre
+			</button>
+			<button
+			onClick={() => this.switchNameHandler("Prueba de otra forma")}>
+			cambiar nombre de otra forma
+			</button>
+			<Person name="Alex" age="29" />
+			<Person name="Andrea" age="30" click={this.switchNameHandler.bind(this, null)}>
+			Mis hobbies son: cocinar, ver series
+			</Person>
+			<Person name={this.state.aName} age="29" changed={this.changeNameHandler} />
+		</div>
+	);
 
-    return <div className="App">
-        <h1>{this.state.title}</h1>
-        <p>{this.state.pText}</p>
-        <button onClick={this.switchNameHandler.bind(this, "Prueba")}>
-          cambiar nombre
-        </button>
-        <button
-          onClick={() => this.switchNameHandler("Prueba de otra forma")}
-        >
-          cambiar nombre de otra forma
-        </button>
-        <Person name="Alex" age="29" />
-        <Person name="Andrea" age="30" click={this.switchNameHandler.bind(this, null)}>
-          Mis hobbies son: cocinar, ver series
-        </Person>
-        <Person name={this.state.aName} age="29" changed={this.changeNameHandler} />
-      </div>;
-
-    /* return React.createElement("div", { className: "App" }, React.createElement("h1", null, "Ejemplo de componente con la clase React")); */
+    // return React.createElement("div", { className: "App" }, React.createElement("h1", null, "Ejemplo de componente con la clase React"));
   }
 }
 
