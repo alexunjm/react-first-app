@@ -46,6 +46,15 @@ class App extends Component {
   };
 
   render() {
+	const style = {
+		backgroundColor: '#f1441c',
+		color: 'white',
+		border: '1px solid #3a778a',
+		shadowBox: '1 2px 2px',
+		padding: '8px',
+		cursor: 'pointer'
+	}
+
     let Persons = null;
     if (this.state.showPersons) {
       Persons = (
@@ -62,6 +71,8 @@ class App extends Component {
 			})}
         </div>
       );
+	  style.backgroundColor = "#3a778a";
+	  style.border = "#f1441c";
     }
 
     return (
@@ -75,7 +86,7 @@ class App extends Component {
           cambiar nombre de otra forma
         </button>
         <div>
-          <button onClick={this.tooglePersons}>toogle</button>
+          <button style={style} onClick={this.tooglePersons}>toogle</button>
         </div>
         {Persons}
       </div>
