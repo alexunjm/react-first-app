@@ -7,7 +7,13 @@ class App extends Component {
   state = {
     title: "Bienvenido a React",
     pText: "Esto realmente funciona!!",
-    aName: "Marlon",
+    Persons: [
+		{id: 1, name: "Alex", age: 29},
+		{id: 2, name: "Andrea", age: 30, hobbies: ['cocinar', 'ver series']},
+		{id: 3, name: "Vale", age: 17},
+		{id: 4, name: "Paula", age: 25},
+		{id: 5, name: "Violeta", age: 5}
+	],
     showPersons: false
   };
 
@@ -21,9 +27,14 @@ class App extends Component {
     });
   };
 
-  changeNameHandler = event => {
+  changeNameHandler = (event, id) => {
+	const Persons = [...this.state.Persons];
+	const index = Persons.findIndex(person => person.id === id);
+	const person = Persons[index];
+	person.name = event.target.value;
+	Persons[index] = person;
     this.setState({
-      aName: event.target.value
+      Persons
     });
   };
 
@@ -39,19 +50,16 @@ class App extends Component {
     if (this.state.showPersons) {
       Persons = (
         <div>
-          <Person name="Alex" age="29" />
-          <Person
-            name="Andrea"
-            age="30"
-            click={this.switchNameHandler.bind(this, null)}
-          >
-            Mis hobbies son: cocinar, ver series
-          </Person>
-          <Person
-            name={this.state.aName}
-            age="29"
-            changed={this.changeNameHandler}
-          />
+			{this.state.Persons.map(p => {
+				if(p.hobbies) {
+					return (
+						<Person key={p.id} name={p.name} age={p.age} changed={event => this.changeNameHandler(event, p.id)} >
+						Mis hobbies son: {p.hobbies.map((h, index, array) => index < array.length-1 ? h + ', ' : h)}
+						</Person>
+					);
+				}
+				return <Person key={p.id} name={p.name} age={p.age} changed={(event) => this.changeNameHandler(event, p.id)} />;
+			})}
         </div>
       );
     }
